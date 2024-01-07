@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 
 from pydantic import BaseModel, validator
 
@@ -13,6 +13,7 @@ class Config(BaseModel):
     maximum: int = 0
     webhook: Optional[str] = ''
     sheet_url: Optional[str] = ''
+    channels_id: List[int] = []
 
     @validator("interval", "checkpoint_timer", "interval", pre=True, always=True)
     def _min_to_sec(cls, value: int):
