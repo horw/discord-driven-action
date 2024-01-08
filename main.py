@@ -29,8 +29,6 @@ FNULL = open(os.devnull, 'w')
 sku_dict = {}
 sites = {}
 
-token = "TOKEN"
-
 bcolors.printgreen("Reading path...")
 try:
     bots_path = json.load(open('path.json'))
@@ -406,7 +404,7 @@ def discord_bot():
         except Exception as e:
             print(f'Error: {e}')
 
-    client.run(token)
+    client.run(config.token)
 
 
 discord_bot()
