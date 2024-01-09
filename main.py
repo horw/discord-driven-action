@@ -261,8 +261,8 @@ def discord_bot():
     intents = discord.Intents.default()
     intents.message_content = True
 
-    # client = discord.Client(intents=intents)
-    client = discord.Client(intents=intents, proxy="http://localhost:1080")
+    client = discord.Client(intents=intents)
+    # client = discord.Client(intents=intents, proxy="http://localhost:1080")
 
     ##START ROUTINE
     @client.event
