@@ -15,6 +15,6 @@ class Config(BaseModel):
     sheet_url: Optional[str] = ''
     channels_id: List[int] = []
 
-    @validator("interval", "checkpoint_timer", "interval", pre=True, always=True)
+    @validator("timer", "interval", "checkpoint_timer", pre=True, always=True)
     def _min_to_sec(cls, value: int):
         return value * 60

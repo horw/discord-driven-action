@@ -34,13 +34,14 @@ class Fly(ProgramBase):
                     'SIZEBQT', sizes).replace('SKUBQT', sku).encode('utf-8'))
 
         os.chdir(self.path.replace('fly-cli.exe', ''))
-
+        print("Start program on path: ", self.path)
         prpr = subprocess.Popen(f"{self.path}",
                                 creationflags=subprocess.CREATE_NEW_CONSOLE,
                                 stdin=subprocess.PIPE)
         self.fly_windows.append(prpr)
         try:
-            prpr.communicate(b'\n', timeout=0.1)
+            prpr.stdin.write(b'\n')
+            prpr.stdin.flush()
         except:
             print("Command send to fly")
 

@@ -81,7 +81,8 @@ def connect_window_error(error_str):
 try:
     bot.DATA = open(bot.tasks_path.replace('tasks.csv', 'taskscopy.csv'), 'rb').read()
     # DATA_CA = open(TASKS_PATH.replace('tasks.csv', 'taskscopyCA.csv'), 'rb').read()
-except:
+except Exception as e:
+    print(e)
     input('Tasks error')
     sys.exit(0)
 
@@ -105,7 +106,6 @@ def kill_process():
 def restart_func():
     global window
     bot.restart()
-
 
 
 def open_link(link, site_link, sizes, sku, msg):
@@ -134,7 +134,7 @@ def open_link(link, site_link, sizes, sku, msg):
         embed['color'] = 8190976
         embed['fields'] = []
         embed['fields'].append({'name': 'Time', 'value': f'{t}'})
-        embed['fields'].append({'name': 'Bot Name', 'value': f"{bot['name']}"})
+        embed['fields'].append({'name': 'Bot Name', 'value': f"{bot.name}"})
         embed['fields'].append({'name': 'MONITOR', 'value': msg.channel.name})
         embed['footer'] = {
             'icon_url': 'https://cdn.discordapp.com/attachments/696345463099621478/752526723806920744/106481578_2024239424376214_1105798686871767184_o.png',
@@ -261,8 +261,8 @@ def discord_bot():
     intents = discord.Intents.default()
     intents.message_content = True
 
-    client = discord.Client(intents=intents)
-    # client = discord.Client(intents=intents, proxy="http://localhost:1080")
+    # client = discord.Client(intents=intents)
+    client = discord.Client(intents=intents, proxy="http://localhost:1080")
 
     ##START ROUTINE
     @client.event
