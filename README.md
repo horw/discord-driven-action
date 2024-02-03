@@ -1,6 +1,9 @@
 # discord-driven-action
 Do some actions when you receive messages in Discord.
 
+Group link
+https://discord.gg/9KzCxR8JZs
+
 ## Create a Bot in Discord
 1. Navigate to the Discord Developer Portal at https://discord.com/developers/applications.
 2. Click on New Application.
